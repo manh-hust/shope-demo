@@ -1,0 +1,16 @@
+.navigation{
+    display: flex;
+    padding: 24px;
+    justify-content: space-between;
+    background-color: rgb(224, 221, 16);
+}
+.navigation__item{
+    display: flex;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0 48px;
+}
+
