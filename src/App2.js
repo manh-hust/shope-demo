@@ -5,7 +5,6 @@ import Product from './Component/Product'
 import Navigation from './Component/Navigation'
 import Home from './Component/Home'
 import ProductDetail from './Component/Product.detail'
-import {Button} from 'reactstrap'
 
 function App2(){
     
