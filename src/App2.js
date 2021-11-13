@@ -1,10 +1,16 @@
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Cart from './Component/Cart'
-import Product from './Component/Product'
-import Navigation from './Component/Navigation'
 import Home from './Component/Home'
+import Navigation from './Component/Navigation'
+import Product from './Component/Product'
 import ProductDetail from './Component/Product.detail'
+import SignIn from './features/auth'
+
+
+
+
+
 
 function App2(){
     
@@ -16,6 +22,7 @@ function App2(){
             <Route path="/products/:productId"  component={ProductDetail}/>
             <Route path="/products" exact component={Product}/>
             <Route path="/cart" component={Cart}/>
+            <Route path="/signin" component={SignIn}/>
         </Switch>
     </Router>
     )

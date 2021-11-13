@@ -1,9 +1,9 @@
-import{ useEffect} from 'react'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
-import './style.css'
-import {Button, Spinner} from 'reactstrap'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useParams, Link } from 'react-router-dom'
+import { Button, Spinner } from 'reactstrap'
+import './style.css'
 
 function ProductDetail() {
     const { productId } = useParams()
@@ -56,7 +56,9 @@ function ProductDetail() {
                             <span>{productItem.description}</span>
                         </div>
                         <div className="button-group">
-                            <Button color="danger" className="button-group__buy">Buy</Button>
+                            <Link to='/signin'>
+                                <Button color="danger" className="button-group__buy">Buy</Button>
+                            </Link>
                             <Button 
                                 color="success" outline 
                                 className="button-group__buy"
