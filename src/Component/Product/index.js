@@ -1,15 +1,16 @@
-import { useEffect, useRef} from 'react';
+import { useEffect, useRef } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {Button, Container, Row, Col, Spinner } from 'reactstrap'
+import {Container, Row, Col, Spinner } from 'reactstrap'
 import { Card, CardTitle, CardBody, CardImg, CardSubtitle} from 'reactstrap'
-import axios from 'axios'
-import {Link} from 'react-router-dom'
-import './product.css'
+import axios from 'axios';
+import {Link} from 'react-router-dom';
+import './product.css';
 function Product(){
 
     const products = useSelector(state => state.product.items)
     const dispatch = useDispatch()
     const swit = useRef(false)
+    
     const fetchProduct = async () => {
         const response = await axios
         .get("https://fakestoreapi.com/products")
@@ -23,6 +24,7 @@ function Product(){
     }
 
     useEffect(() => {
+        console.log("Fetch API list product")
         fetchProduct()
         swit.current = true
     },[])

@@ -6,9 +6,7 @@ import Navigation from './Component/Navigation'
 import Product from './Component/Product'
 import ProductDetail from './Component/Product.detail'
 import SignIn from './features/auth'
-
-
-
+import App from './App.js'
 
 
 
@@ -22,6 +20,7 @@ function App2(){
             <Route path="/products/:productId"  component={ProductDetail}/>
             <Route path="/products" exact component={Product}/>
             <Route path="/cart" component={Cart}/>
+            <Route path="/App" component={App}/>
             <Route path="/signin" component={SignIn}/>
         </Switch>
     </Router>
