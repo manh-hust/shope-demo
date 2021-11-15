@@ -6,8 +6,7 @@ import Navigation from './Component/Navigation'
 import Product from './Component/Product'
 import ProductDetail from './Component/Product.detail'
 import SignIn from './features/auth'
-import App from './App.js'
-
+import App from './Component/Post/Post'
 
 
 function App2(){

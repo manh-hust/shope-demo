@@ -1,4 +1,4 @@
-import {Button, UncontrolledCarousel} from 'reactstrap'
+import { UncontrolledCarousel} from 'reactstrap'
 function Home(){
 
     return (

@@ -11,6 +11,7 @@ function Navigation() {
             <div className="navigation__item">
                 <Link to='/products' >Products</Link>
                 <Link to='/cart' >Cart({total})</Link>
+                <Link to='/App' >App</Link>
                 <Link to='/signin' >Account</Link>
             </div>
        </div>
