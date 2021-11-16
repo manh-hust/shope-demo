@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, Link } from 'react-router-dom'
 import { Button, Spinner } from 'reactstrap'
@@ -10,14 +10,14 @@ function ProductDetail() {
     const productItem = useSelector((state) => state.productDetail.itemSlected)
     const dispatch = useDispatch()
 
-    const fetchDetail = async () => {
+    const fetchDetail = useCallback( async () => {
         const response = await axios.get(`https://fakestoreapi.com/products/${productId}`)
         .catch(err => console.log("Err: ", err))
         dispatch({
             type: 'ITEM_SELECTED',
             payload: response.data
         })
-    }
+    },[dispatch, productId])
 
     function handleAdd(item){
         dispatch({
@@ -36,14 +36,14 @@ function ProductDetail() {
                 type:'ITEM_REMOVE',
             })
         }
-    },[productId])
+    },[fetchDetail, productId, dispatch])
     return (
             <div>
                 { productItem ? 
                ( 
                 <div className="product-detail">
                     <div className="product-detail__img">
-                        <img src={productItem.image}></img>:
+                        <img src={productItem.image} alt="hihi"/>
                     </div>
                     <div className="product-detail__descrip">
                         <div className="product-detail__descrip__title">

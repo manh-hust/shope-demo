@@ -15,9 +15,9 @@ function App2(){
     <Router>
         <Navigation/>
         <Switch>
-            <Route path="/" exact component={Home}/>
+            <Route exact path="/" component={Home}/>
             <Route path="/products/:productId"  component={ProductDetail}/>
-            <Route path="/products" exact component={Product}/>
+            <Route path="/products" component={Product}/>
             <Route path="/cart" component={Cart}/>
             <Route path="/App" component={App}/>
             <Route path="/signin" component={SignIn}/>

@@ -41,7 +41,7 @@ function Cart(){
             { cart.length > 0 ?
             (<tbody>
                 {cart.map((item, index) => ( 
-                    <tr>
+                    <tr key={index}>
                         <th scope="row">
                             {index + 1}
                         </th>

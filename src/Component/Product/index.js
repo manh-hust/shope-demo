@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {Container, Row, Col, Spinner } from 'reactstrap';
 import { Card, CardTitle, CardBody, CardImg, CardSubtitle} from 'reactstrap';
@@ -12,17 +12,17 @@ function Product(){
     const dispatch = useDispatch()
     const swit = useRef(false)
 
-    const fetchProduct = async () => {
-        const response = await axios
-        .get("https://fakestoreapi.com/products")
-        .catch((err) => {
-            console.log("Err: ", err)
-        })
-        dispatch({
-            type: 'FETCH_PRODUCT_SUCCESS',
-            payload: response.data
-        })
-    }
+    const fetchProduct = useCallback(async () => {
+            const response = await axios
+            .get("https://fakestoreapi.com/products")
+            .catch((err) => {
+                console.log("Err: ", err)
+            })
+            dispatch({
+                type: 'FETCH_PRODUCT_SUCCESS',
+                payload: response.data
+            })
+    },[])
 
     useEffect(() => {
         fetchProduct()

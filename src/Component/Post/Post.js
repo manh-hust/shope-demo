@@ -1,6 +1,6 @@
 import './post.css';
 import { useSelector, useDispatch } from 'react-redux'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect } from 'react'
 import ThreeDots from '../Loading/ThreeDots'
 
 
@@ -10,8 +10,8 @@ function Post(){
     const {post, fillter, totalRow} = useSelector(state => state.post)
     const totalPages = Math.ceil(totalRow / fillter._limit)
     const _page = fillter._page
-    const isLoading = false
-    useEffect(() => {
+    const isLoading = true
+    const fetchPagination = useCallback(() =>{
         fetch(`https://js-post-api.herokuapp.com/api/posts?_limit=${fillter._limit}&_page=${fillter._page}`)
         .then(res => res.json())
         .then(post =>{
@@ -24,8 +24,12 @@ function Post(){
                 payload: post.pagination._totalRows
             })
         })
-    },[fillter])
+    },[dispatch, fillter])
 
+    useEffect(() => {
+        fetchPagination();
+        
+    },[fetchPagination])
 
     function handlePageChangeNext(page){
         dispatch({

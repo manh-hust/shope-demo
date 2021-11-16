@@ -28,7 +28,6 @@ const postReducer = (state = initPostsState, action) => {
                 ...state,
                 fillter: fillterNew
             }
-        break;
 
         case 'PREV_PAGE':
             const fillterPrev = {...state.fillter}
@@ -37,7 +36,6 @@ const postReducer = (state = initPostsState, action) => {
                 ...state,
                 fillter: fillterPrev
             }
-        break;
 
         default:
 
