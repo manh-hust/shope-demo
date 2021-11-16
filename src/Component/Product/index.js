@@ -1,38 +1,16 @@
-import { useCallback, useEffect, useRef } from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import {Container, Row, Col, Spinner } from 'reactstrap';
-import { Card, CardTitle, CardBody, CardImg, CardSubtitle} from 'reactstrap';
-import axios from 'axios';
-import {Link} from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { Card, CardBody, CardImg, CardSubtitle, CardTitle, Col, Container, Row } from 'reactstrap';
 import './product.css';
-function Product(){
 
+function Product(){
     
     const products = useSelector(state => state.product.items)
-    const dispatch = useDispatch()
-    const swit = useRef(false)
-
-    const fetchProduct = useCallback(async () => {
-            const response = await axios
-            .get("https://fakestoreapi.com/products")
-            .catch((err) => {
-                console.log("Err: ", err)
-            })
-            dispatch({
-                type: 'FETCH_PRODUCT_SUCCESS',
-                payload: response.data
-            })
-    },[])
-
-    useEffect(() => {
-        fetchProduct()
-        swit.current = true
-    },[])
+    
     return (
         <Container>
-            <h2 mt="5">List Product</h2>
-            { swit.current ?
-           (<Row  className="rows">
+            <h2 className="mt-3">List Product</h2>
+           <Row  className="rows">
             {products.map((product) =>(
             <Col className="columns"
                 key={product.id}
@@ -62,51 +40,7 @@ function Product(){
                 </Link>
             </Col>
              ))}
-           </Row>):
-           (
-            <div  className="Spinner">
-            <Spinner
-                className="Spinner-item"
-            type="grow" 
-            color="warning"
-            size="sm"
-        >
-          Loading...
-        </Spinner>
-        <Spinner
-            className="Spinner-item"
-            type="grow" 
-            color="warning"
-            size="sm"
-        >
-          Loading...
-        </Spinner>
-        <Spinner
-            className="Spinner-item"
-            type="grow" 
-            color="warning"
-            size="sm"
-        >
-          Loading...
-        </Spinner>
-        <Spinner
-            className="Spinner-item"
-            type="grow" 
-            color="warning"
-            size="sm"
-        >
-          Loading...
-        </Spinner>
-        <Spinner
-            className="Spinner-item"
-            type="grow" 
-            color="warning"
-            size="sm"
-        >
-          Loading...
-        </Spinner>
-            </div>
-           )}
+           </Row>
         </Container>
     )
 }
