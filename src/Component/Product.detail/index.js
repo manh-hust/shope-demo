@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams, Link } from 'react-router-dom'
 import { Button, Spinner } from 'reactstrap'
 import './style.css'
+import {addToCard, itemRemove, itemSelected} from '../../Store/Action.Creator'
 
 function ProductDetail() {
     const { productId } = useParams()
@@ -13,17 +14,11 @@ function ProductDetail() {
     const fetchDetail = useCallback( async () => {
         const response = await axios.get(`https://fakestoreapi.com/products/${productId}`)
         .catch(err => console.log("Err: ", err))
-        dispatch({
-            type: 'ITEM_SELECTED',
-            payload: response.data
-        })
+        dispatch(itemSelected(response.data))
     },[dispatch, productId])
 
     function handleAdd(item){
-        dispatch({
-            type: 'ADD_TO_CART',
-            payload: item
-        })
+        dispatch(addToCard(item))
     }
 
     useEffect(() => {
@@ -32,11 +27,10 @@ function ProductDetail() {
         }
 
         return () => {
-            dispatch({
-                type:'ITEM_REMOVE',
-            })
+            dispatch(itemRemove())
         }
     },[fetchDetail, productId, dispatch])
+
     return (
             <div>
                 { productItem ? 

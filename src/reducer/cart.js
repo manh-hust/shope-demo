@@ -1,3 +1,5 @@
+import {ADD_TO_CART, REMOVE_TO_CART} from '../Store/Constant'
+
 const initCartState = {
     items: [],
     total: 0
@@ -5,7 +7,7 @@ const initCartState = {
 
 const cartReducer = (state = initCartState, action) =>{
     switch(action.type){
-        case 'ADD_TO_CART':
+        case ADD_TO_CART:
             let initTotal = 1
             const newItems = [...state.items]
             const newItem  = action.payload
@@ -25,7 +27,7 @@ const cartReducer = (state = initCartState, action) =>{
                 items: newItems,
                 total: newTotal,
             }   
-        case 'REMOVE_TO_CART':
+        case REMOVE_TO_CART:
             const newItemsR = [...state.items]
             const item = action.payload
             if(item.tt > 1){

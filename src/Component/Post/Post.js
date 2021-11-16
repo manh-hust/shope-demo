@@ -1,8 +1,8 @@
 import './post.css';
 import { useSelector, useDispatch } from 'react-redux'
 import { useCallback, useEffect } from 'react'
-import ThreeDots from '../Loading/ThreeDots'
-
+import { Container, Row, Col, Card, CardText, CardTitle } from 'reactstrap';
+import { fetchApiPost, getTotalPage, nextPage, prevPage} from '../../Store/Action.Creator';
 
 function Post(){
 
@@ -10,19 +10,12 @@ function Post(){
     const {post, fillter, totalRow} = useSelector(state => state.post)
     const totalPages = Math.ceil(totalRow / fillter._limit)
     const _page = fillter._page
-    const isLoading = true
     const fetchPagination = useCallback(() =>{
         fetch(`https://js-post-api.herokuapp.com/api/posts?_limit=${fillter._limit}&_page=${fillter._page}`)
         .then(res => res.json())
         .then(post =>{
-            dispatch({
-                type: 'FETCH_API_POST',
-                payload: post.data
-            })
-            dispatch({
-                type: 'GET_TOTAL_PAGE',
-                payload: post.pagination._totalRows
-            })
+            dispatch(fetchApiPost(post.data))
+            dispatch(getTotalPage(post.pagination._totalRows))
         })
     },[dispatch, fillter])
 
@@ -32,56 +25,61 @@ function Post(){
     },[fetchPagination])
 
     function handlePageChangeNext(page){
-        dispatch({
-            type: 'NEXT_PAGE',
-            payload: page
-        })
+        dispatch(nextPage(page))
     }
     function handlePageChangePrev(page){
-        dispatch({
-            type: 'PREV_PAGE',
-            payload: page
-        })
+        dispatch(prevPage(page))
     }
 
     return (
-        <>
-        <h1>List Post</h1>
-        { isLoading ?
-        (<ul className="list">
-            {post.map(post => (
-                <li key={post.id} className="list-item">
-                    <h2>{post.title}</h2>
-                    <p>{post.description}</p>
-                </li>
-            ))}
-        </ul>) : (<ThreeDots typeLoading="ThreeDots"/>)
-        }
-        <div className="pagination">
-        <button
-            disabled={_page <= 1}
-            onClick = {() => handlePageChangePrev(_page - 1)}
-        >
-            Prev
-        </button>
-        {_page === 1 ? false : <span> ... </span>}
-        <button 
-            style={{
-                color: '#fff',
-                backgroundColor: '#333'
-            }}
-        >
-            {_page}
-        </button>
-        {_page === totalPages ? false : <span> ... </span>}
-        <button
-            disabled={_page >= totalPages}
-            onClick = {() => handlePageChangeNext(_page + 1)}
-        >
-            Next
-        </button>
-    </div>
-    </>
+        <Container>
+            <h1 className="m-5 mt-3">List Post</h1>
+            <Row >
+                {post.map(post => (
+                    <Col  
+                    xl="3"
+                    lg="4"
+                    md="6"
+                    sm="12"
+                    key={post.id}
+                    className="mb-3"
+                    >
+                        <Card body>
+                            <CardTitle tag="h5">
+                                {post.title}
+                            </CardTitle>
+                            <CardText>
+                                {post.description}
+                            </CardText>
+                        </Card>
+                    </Col>
+                ))}
+            </Row>
+            <div className="pagination">
+                <button
+                    disabled={_page <= 1}
+                    onClick = {() => handlePageChangePrev(_page - 1)}
+                >
+                    Prev
+                </button>
+                {_page === 1 ? false : <span> ... </span>}
+                <button 
+                    style={{
+                        color: '#fff',
+                        backgroundColor: '#333'
+                    }}
+                >
+                    {_page}
+                </button>
+                {_page === totalPages ? false : <span> ... </span>}
+                <button
+                    disabled={_page >= totalPages}
+                    onClick = {() => handlePageChangeNext(_page + 1)}
+                >
+                    Next
+                </button>
+            </div>
+        </Container>
     )
 }
 

@@ -1,5 +1,6 @@
 import {useSelector, useDispatch} from 'react-redux';
 import {Button, Container, Table} from 'reactstrap'
+import { removeToCard } from '../../Store/Action.Creator'
 
 function Cart(){
 
@@ -7,10 +8,7 @@ function Cart(){
     const dispatch = useDispatch()
 
     function handleDelete(item){
-        dispatch({
-            type: 'REMOVE_TO_CART',
-            payload: item
-        })
+        dispatch(removeToCard(item))
     }
     return (
     <Container>

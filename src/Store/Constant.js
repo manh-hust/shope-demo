@@ -1,0 +1,11 @@
+
+export const ADD_TO_CART = 'ADD_TO_CART'
+export const REMOVE_TO_CART = 'REMOVE_TO_CART'
+export const FETCH_API_POST = 'FETCH_API_POST'
+export const GET_TOTAL_PAGE = 'GET_TOTAL_PAGE'
+export const NEXT_PAGE = 'NEXT_PAGE'
+export const PREV_PAGE = 'PREV_PAGE'
+export const FETCH_PRODUCT_SUCCESS = 'FETCH_PRODUCT_SUCCESS'
+export const FETCH_PRODUCT_FAIL = 'FETCH_PRODUCT_FAIL'
+export const ITEM_SELECTED = 'ITEM_SELECTED'
+export const ITEM_REMOVE = 'ITEM_REMOVE'

@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Cart from './Component/Cart'
 import Home from './Component/Home'
 import Navigation from './Component/Navigation'
-import App from './Component/Post/Post'
+import Post from './Component/Post/Post'
 import Product from './Component/Product'
 import ProductDetail from './Component/Product.detail'
 import SignIn from './features/auth'
@@ -40,7 +40,7 @@ function App2(){
             <Route path="/products/:productId"  component={ProductDetail}/>
             <Route path="/products" component={Product}/>
             <Route path="/cart" component={Cart}/>
-            <Route path="/App" component={App}/>
+            <Route path="/App" component={Post}/>
             <Route path="/signin" component={SignIn}/>
         </Switch>
     </Router>

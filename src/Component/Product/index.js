@@ -15,6 +15,9 @@ function Product(){
             <Col className="columns"
                 key={product.id}
                 xl="3"
+                lg="4"
+                md="6"
+                sm="12"
             >   
                 <Link to={`/products/${product.id}`}>
                 <Card>
