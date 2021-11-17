@@ -10,7 +10,7 @@ import Post from './Component/Post/Post'
 import Product from './Component/Product'
 import ProductDetail from './Component/Product.detail'
 import SignIn from './features/auth'
-
+import ScrollToTop from './Component/BackToTop'
 
 function App2(){
 
@@ -43,6 +43,7 @@ function App2(){
             <Route path="/App" component={Post}/>
             <Route path="/signin" component={SignIn}/>
         </Switch>
+        <ScrollToTop/>
     </Router>
     )
 }

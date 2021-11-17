@@ -3,6 +3,10 @@
     padding: 24px;
     justify-content: space-between;
     background-color: rgb(224, 221, 16);
+    /* position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1; */
 }
 .navigation__item{
     display: flex;

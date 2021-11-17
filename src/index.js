@@ -6,7 +6,7 @@ import App2 from './App2';
 import store from './store'
 import {Provider} from 'react-redux';
 import reportWebVitals from './reportWebVitals';
-
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 ReactDOM.render(
   <Provider store={store}>

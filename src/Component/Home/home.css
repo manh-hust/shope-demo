@@ -1,0 +1,10 @@
+.img-fixed{
+    display: flex;
+    justify-content: center;
+}
+.Carousel-Container{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 28px;
+}
