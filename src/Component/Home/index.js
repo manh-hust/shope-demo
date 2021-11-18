@@ -2,14 +2,17 @@ import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Container, Row, Col } from 'reactstrap';
-import Navigation from '../Navigation';
 import './home.css';
 
 function Home(){
 
     return (
       <>
-        <div className="home-container">
+        <div className="home-container-video">
+          <video autoPlay loop className="home-container-video__vd" src="./video.mp4" muted >
+          </video>
+        </div>
+        <div className="home-container-image">
         </div>
         <Container style={{height: '100vh'}}>
           <Row>
@@ -40,6 +43,9 @@ function Home(){
             >
               <button className="btn-nav"><span></span>Search</button>
             </Col>
+          </Row>
+          <Row>
+
           </Row>
         </Container>
       </>
