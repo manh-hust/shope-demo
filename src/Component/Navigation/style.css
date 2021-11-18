@@ -17,4 +17,18 @@ a{
     font-size: 1.5rem;
     margin: 0 48px;
 }
-
+.navigation__item-animation{
+    position: relative;
+}
+.navigation__item-animation::before{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #eee;
+    position: absolute;
+    bottom: -4px;
+    transition: all 0.35s linear;
+}
+.navigation__item-animation:hover::before{
+    width: 100%;
+}

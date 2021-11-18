@@ -8,3 +8,33 @@
     position: relative;
     top: 28px;
 }
+.btn-nav{
+    background: rgb(224, 221, 16);
+    width: 200px;
+    color: #fff;
+    padding: 10px 0;
+    font-size: 18px;
+    border-radius: 25px;
+    border: 2px solid #009688;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.btn-nav span{
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background: #009688;
+    left: 0;
+    bottom: 0;
+    border-radius: 25px;
+    z-index: -1;
+    transition: all 0.5s;
+}
+.btn-nav:hover span{
+    width: 100%
+}
+.btn-nav:hover{
+    border: none;
+    background: transparent;
+}

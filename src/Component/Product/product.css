@@ -4,5 +4,13 @@
     margin-bottom: 24px;
 }
 .CardImg{
-    height: 360px;
+    height: 320px;
+    transition: all 0.5s;
+}
+.CardImg:hover{
+    transform: scale(1.2)
+}
+.card-product{
+    overflow: hidden;
+    transition: all 0.5s;
 }

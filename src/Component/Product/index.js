@@ -20,7 +20,7 @@ function Product(){
                 sm="12"
             >   
                 <Link to={`/products/${product.id}`}>
-                <Card>
+                <Card className="card-product">
                     <CardImg
                         className="CardImg"
                         alt="Card image cap"

@@ -44,7 +44,10 @@ function Post(){
                     key={post.id}
                     className="mb-3"
                     >
-                        <Card body>
+                        <Card
+                        body
+                        className="card-post"
+                        >
                             <CardTitle tag="h5">
                                 {post.title}
                             </CardTitle>
