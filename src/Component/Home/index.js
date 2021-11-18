@@ -3,13 +3,15 @@ import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Container, Row, Col } from 'reactstrap';
 import './home.css';
+import video from '../../video/video.mp4'
 
 function Home(){
 
     return (
       <>
         <div className="home-container-video">
-          <video autoPlay loop className="home-container-video__vd" src="./video.mp4" muted >
+          <video autoPlay loop className="home-container-video__vd" muted >
+            <source src={video} type="video/mp4"/>
           </video>
         </div>
         <div className="home-container-image">

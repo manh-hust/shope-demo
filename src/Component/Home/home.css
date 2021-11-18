@@ -1,16 +1,13 @@
 .home-container-video{
-    position: relative;
-    height: 100vh;
+    height: 90vh;
 }
 .home-container-video__vd{
     position: absolute;
     left: 0;
     bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
+    object-fit: cover;
     z-index: -1;
+    width: 100%;
 }
 .home-container-image{
     width: 100%;
