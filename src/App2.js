@@ -33,18 +33,18 @@ function App2(){
 
 
     return (
-    <Router>
-        <Navigation/>
-        <Switch>
-            <Route exact path="/" component={Home}/>
-            <Route path="/products/:productId"  component={ProductDetail}/>
-            <Route path="/products" component={Product}/>
-            <Route path="/cart" component={Cart}/>
-            <Route path="/App" component={Post}/>
-            <Route path="/signin" component={SignIn}/>
-        </Switch>
-        <ScrollToTop/>
-    </Router>
+        <Router>
+            <Navigation/>
+            <Switch>
+                <Route exact path="/" component={Home}/>
+                <Route path="/products/:productId"  component={ProductDetail}/>
+                <Route path="/products" component={Product}/>
+                <Route path="/cart" component={Cart}/>
+                <Route path="/App" component={Post}/>
+                <Route path="/signin" component={SignIn}/>
+            </Switch>
+            <ScrollToTop/>
+        </Router>
     )
 }
 export default App2
