@@ -1,5 +1,8 @@
 .home-container-video{
-    height: 90vh;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));
+    display: flex;
+    align-items: center;
 }
 .home-container-video__vd{
     position: absolute;
@@ -8,6 +11,9 @@
     object-fit: cover;
     z-index: -1;
     width: 100%;
+}
+.home-container-video{
+    color: #fff;
 }
 .home-container-image{
     width: 100%;
@@ -43,7 +49,7 @@
     position: absolute;
     width: 0;
     height: 100%;
-    background: #009688;
+    background: #01f8df;
     left: 0;
     bottom: 0;
     border-radius: 25px;
@@ -55,4 +61,19 @@
 }
 .btn-nav:hover{
     border: none;
+}
+.home-container-video-content{
+ 
+}
+.home-container-video-images{
+    
+}
+.item{
+    height: 200px;
+    margin: 12px;
+    transition: 0.5s all;
+    border-radius: 12px;
+}
+.item:hover{
+    transform: translateY(-10px);
 }

@@ -2,7 +2,8 @@
     display: flex;
     padding: 24px;
     justify-content: space-between;
-    background-color: rgb(224, 221, 16);
+    background-color: transparent;
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));
     /* position: fixed;
     left: 0;
     right: 0;
