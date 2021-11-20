@@ -13,12 +13,7 @@ import ScrollReveal from 'scrollreveal';
 function Home(){
 
     const contentVideo = useRef()
-    const config = {
-      duration: 1000,
-      delay: 150,
-      distance: '100px',
-      easing: 'ease',
-    }
+  
     useEffect(()=>{
       const classNameContentVideo = contentVideo.current.className
       ScrollReveal().reveal(`.${classNameContentVideo}`, {origin: 'left', distance: '100px', delay: 700})
@@ -32,7 +27,12 @@ function Home(){
             <source src={video} type="video/mp4"/>
           </video>
           <Container>
-            <Row style={{justifyContent : 'space-around'}}>
+            <Row style={{
+                justifyContent : 'space-around',
+                alignItems: 'center',
+                marginBottom: 40
+                }} 
+              >
               <Col md={4} className="home-container-video-content" >
                   <div className="home-container-video-content_child" ref={contentVideo}>
                     <h1>Chicken Grill</h1>
@@ -42,10 +42,21 @@ function Home(){
                   </div>
               </Col>
               <Col  md={4}  className="home-container-video-images">
-                  <img className="item" src={img1}></img>
-                  <img className="item" src={img2}></img>
-                  <img className="item" src={img3}></img>
-                  <img className="item" src={img4}></img>
+                  <div className="item">
+                    <img className="item-hover" src={img1}></img>
+                  </div>
+                  <div className="item">
+                    <img className="item-hover" src={img2}></img>
+                  </div>
+                  <div className="item">
+                    <img className="item-hover" src={img3}></img>
+                  </div>
+                  <div className="item">
+                    <img className="item-hover" src={img4}></img>
+                  </div>
+                    {/* <img className="item" src={img2}></img>
+                    <img className="item" src={img3}></img>
+                    <img className="item" src={img4}></img>  */}
               </Col>
             </Row>
           </Container>

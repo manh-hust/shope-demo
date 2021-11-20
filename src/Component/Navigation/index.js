@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import {useSelector} from 'react-redux';
 import './style.css'
 
@@ -7,12 +7,12 @@ function Navigation() {
     const total = useSelector(state => state.cart.total)
     return (
        <div className="navigation">
-            <Link  to="/" >Home</Link>
+            <NavLink className="navigation__item-animation"  to="/" >Home</NavLink>
             <div className="navigation__item">
-                <Link className="navigation__item-animation" to='/products' >Products</Link>
-                <Link className="navigation__item-animation" to='/cart' >Cart({total})</Link>
-                <Link className="navigation__item-animation" to='/App' >Post</Link>
-                <Link className="navigation__item-animation" to='/signin' >Account</Link>
+                <NavLink activeClassName="avtive-navbars" className="navigation__item-animation" to='/products' >Products</NavLink>
+                <NavLink activeClassName="avtive-navbars" className="navigation__item-animation" to='/cart' >Cart({total})</NavLink>
+                <NavLink activeClassName="avtive-navbars" className="navigation__item-animation" to='/App' >Post</NavLink>
+                <NavLink activeClassName="avtive-navbars" className="navigation__item-animation" to='/signin' >Account</NavLink>
             </div>
        </div>
     )

@@ -9,7 +9,7 @@
 .navigation__item{
     display: flex;
 }
-a{
+a, Link{
     text-decoration: none;
     color: #fff;
     font-size: 1.5rem;
@@ -17,16 +17,23 @@ a{
 }
 .navigation__item-animation{
     position: relative;
+
 }
 .navigation__item-animation::before{
     content: '';
     height: 3px;
     width: 0;
-    background: #eee;
+    background: #01f8df;
     position: absolute;
     bottom: -4px;
     transition: all 0.35s linear;
 }
+.avtive-navbars{
+    color: #01f8df;
+}
 .navigation__item-animation:hover::before{
     width: 100%;
+}
+.navigation__item-animation:hover{
+    color: #fff;
 }
