@@ -65,9 +65,8 @@ function ProductDetail() {
                ): (
                 <div  className="Spinner">
                     <Spinner
-                        className="Spinner-item"
+                    className="Spinner-item"
                     type="grow" 
-                    color="warning"
                     size="sm"
                 >
                   Loading...
@@ -75,7 +74,6 @@ function ProductDetail() {
                 <Spinner
                     className="Spinner-item"
                     type="grow" 
-                    color="warning"
                     size="sm"
                 >
                   Loading...
@@ -83,7 +81,6 @@ function ProductDetail() {
                 <Spinner
                     className="Spinner-item"
                     type="grow" 
-                    color="warning"
                     size="sm"
                 >
                   Loading...
@@ -91,7 +88,6 @@ function ProductDetail() {
                 <Spinner
                     className="Spinner-item"
                     type="grow" 
-                    color="warning"
                     size="sm"
                 >
                   Loading...
@@ -99,7 +95,6 @@ function ProductDetail() {
                 <Spinner
                     className="Spinner-item"
                     type="grow" 
-                    color="warning"
                     size="sm"
                 >
                   Loading...
