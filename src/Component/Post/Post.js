@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useCallback, useEffect } from 'react'
 import { Container, Row, Col, Card, CardText, CardTitle } from 'reactstrap';
 import { fetchApiPost, getTotalPage, nextPage, prevPage} from '../../Store/Action.Creator';
+import ScrollReveal from 'scrollreveal';
 
 function Post(){
 
@@ -21,8 +22,11 @@ function Post(){
 
     useEffect(() => {
         fetchPagination();
-        
     },[fetchPagination])
+
+    useEffect(()=> {
+         ScrollReveal().reveal('.col-post',{distance: '50px', delay: 200, duration: 1000, origin: 'bottom', interval: 200})
+    })
 
     function handlePageChangeNext(page){
         dispatch(nextPage(page))
@@ -30,7 +34,6 @@ function Post(){
     function handlePageChangePrev(page){
         dispatch(prevPage(page))
     }
-
     return (
         <Container>
             <h1 className="m-5 mt-3">List Post</h1>
@@ -42,7 +45,7 @@ function Post(){
                     md="6"
                     sm="12"
                     key={post.id}
-                    className="mb-3"
+                    className="mb-3 col-post"
                     >
                         <Card
                         body

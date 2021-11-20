@@ -13,10 +13,16 @@ const initPostsState = {
 const postReducer = (state = initPostsState, action) => {
     switch(action.type){
         case FETCH_API_POST:
-            return {
+            if(action.payload){
+                return {
+                    ...state,
+                    post : [...action.payload]
+                }
+            }
+            return{
                 ...state,
-                post : [...action.payload]
-            }                 
+                post: []
+            }
         case GET_TOTAL_PAGE:
             return {
                 ...state,

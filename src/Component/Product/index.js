@@ -2,11 +2,18 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Card, CardBody, CardImg, CardSubtitle, CardTitle, Col, Container, Row } from 'reactstrap';
 import './product.css';
+import ScrollReveal from 'scrollreveal';
+import { useEffect } from 'react';
 
 function Product(){
     
     const products = useSelector(state => state.product.items)
     
+    useEffect(() => {
+        ScrollReveal().reveal('.rows',{delay: 300, origin: 'bottom', distance: '100px'}) 
+        ScrollReveal().reveal('.card-product',{delay: 300, interval: 200, origin: 'bottom', distance: '50px', scale: 0.9, duration: 300})
+    },[])
+
     return (
         <Container>
             <h2 className="mt-3">List Product</h2>
