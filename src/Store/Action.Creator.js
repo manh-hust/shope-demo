@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 import {
     ADD_TO_CART,
     REMOVE_TO_CART,
@@ -5,11 +7,39 @@ import {
     GET_TOTAL_PAGE,
     NEXT_PAGE,
     PREV_PAGE,
+    FETCH_PRODUCT_REQUEST,
     FETCH_PRODUCT_SUCCESS,
     FETCH_PRODUCT_FAIL,
     ITEM_SELECTED,
     ITEM_REMOVE
 } from './Constant'
+
+export const loadProducts = () => async dispatch => {
+    try{
+        // dispatch({type: FETCH_PRODUCT_REQUEST})
+        const response = await axios.get("https://fakestoreapi.com/products")
+        dispatch({
+            type: FETCH_PRODUCT_SUCCESS,
+            payload: response.data
+        })
+    }
+    catch(error){
+        console.log(error)
+        dispatch({
+            type: FETCH_PRODUCT_FAIL,
+        })
+    }
+
+}
+
+export const fetchProducSuccess = () => {
+
+}
+export const fetchProducFail = () => {
+    return {
+        type: FETCH_PRODUCT_FAIL
+    }
+}
 
 export const addToCard = payload => {
     return {
@@ -47,17 +77,7 @@ export const prevPage = payload => {
         payload
     }
 }
-export const fetchProducSuccess = payload => {
-    return {
-        type: FETCH_PRODUCT_SUCCESS,
-        payload
-    }
-}
-export const fetchProducFail = () => {
-    return {
-        type: FETCH_PRODUCT_FAIL
-    }
-}
+
 export const itemSelected = payload => {
     return {
         type: ITEM_SELECTED,

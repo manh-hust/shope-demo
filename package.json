@@ -18,6 +18,7 @@
     "react-scripts": "4.0.3",
     "reactstrap": "^9.0.0",
     "redux": "^4.1.2",
+    "redux-thunk": "^2.4.0",
     "scrollreveal": "^4.0.9",
     "web-vitals": "^1.1.2"
   },

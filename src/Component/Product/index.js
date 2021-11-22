@@ -7,17 +7,19 @@ import { useEffect } from 'react';
 
 function Product(){
     
-    const products = useSelector(state => state.product.items)
-    
+    const products = useSelector(state => state.product.items) 
     useEffect(() => {
         ScrollReveal().reveal('.rows',{delay: 300, origin: 'bottom', distance: '100px'}) 
         ScrollReveal().reveal('.card-product',{delay: 300, interval: 200, origin: 'bottom', distance: '50px', scale: 0.9, duration: 300})
     },[])
 
+ 
+
     return (
         <Container>
             <h2 className="mt-3">List Product</h2>
-           <Row  className="rows">
+            {products ?
+           (<Row  className="rows">
             {products.map((product) =>(
             <Col className="columns"
                 key={product.id}
@@ -50,7 +52,8 @@ function Product(){
                 </Link>
             </Col>
              ))}
-           </Row>
+           </Row>) : <h5>Loading...</h5>
+            }
         </Container>
     )
 }
