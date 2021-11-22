@@ -2,13 +2,13 @@ import React, { useEffect, useRef } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Col, Container, Row } from 'reactstrap';
+import ScrollReveal from 'scrollreveal';
 import img1 from '../../image/shahara/pic-1.png';
 import img2 from '../../image/shahara/pic-2.png';
 import img3 from '../../image/shahara/pic-3.png';
 import img4 from '../../image/shahara/pic-4.png';
 import video from '../../video/video.mp4';
-import './home.css';
-import ScrollReveal from 'scrollreveal';
+import './Home.model.css';
 
 function Home(){
 
