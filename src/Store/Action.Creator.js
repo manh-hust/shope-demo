@@ -47,9 +47,6 @@ export const fetchDetailProduct = productId => async dispatch => {
     }
     catch(error){
         console.log(error)
-        dispatch({
-            type: FETCH_PRODUCT_FAIL,
-        })
     }
 }
 
@@ -63,6 +60,19 @@ export const removeToCard = payload => {
     return {
         type: REMOVE_TO_CART,
         payload
+    }
+}
+
+export const fetchPaginationPost = fillter => async dispatch =>{
+    try{
+        console.log('Fillter: ' + fillter._limit)
+        const response = await axios.get(`https://js-post-api.herokuapp.com/api/posts?_limit=${fillter._limit}&_page=${fillter._page}`)
+        dispatch(fetchApiPost(response.data))
+        console.log('Data: ' + response.data)
+        dispatch(getTotalPage(response.pagination._totalRows))
+    }
+    catch(error){
+        console.log(error)
     }
 }
 export const fetchApiPost = payload => {

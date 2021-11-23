@@ -1,8 +1,8 @@
 import './post.css';
 import { useSelector, useDispatch } from 'react-redux'
-import { useCallback, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Container, Row, Col, Card, CardText, CardTitle, Spinner } from 'reactstrap';
-import { fetchApiPost, getTotalPage, nextPage, prevPage} from '../../Store/Action.Creator';
+import { fetchPaginationPost, nextPage, prevPage} from '../../Store/Action.Creator';
 import ScrollReveal from 'scrollreveal';
 
 function Post(){
@@ -11,18 +11,11 @@ function Post(){
     const {post, fillter, totalRow, loading} = useSelector(state => state.post)
     const totalPages = Math.ceil(totalRow / fillter._limit)
     const _page = fillter._page
-    const fetchPagination = useCallback(() =>{
-        fetch(`https://js-post-api.herokuapp.com/api/posts?_limit=${fillter._limit}&_page=${fillter._page}`)
-        .then(res => res.json())
-        .then(post =>{
-            dispatch(fetchApiPost(post.data))
-            dispatch(getTotalPage(post.pagination._totalRows))
-        })
-    },[dispatch, fillter])
 
     useEffect(() => {
-        fetchPagination();
-    },[fetchPagination])
+        console.log('fi: ' + fillter)
+        dispatch(fetchPaginationPost(fillter));
+    },[fetchPaginationPost, dispatch, fillter])
 
     // Animation Scrollreveal
     useEffect(()=> {
