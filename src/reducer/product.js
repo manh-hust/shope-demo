@@ -2,6 +2,7 @@ import {FETCH_PRODUCT_FAIL, FETCH_PRODUCT_SUCCESS, FETCH_PRODUCT_REQUEST} from '
 
 const initProductState = {
     items: [],
+    isSuccess: true
 }
 
 const productReducer = (state = initProductState, action) =>{
@@ -9,16 +10,13 @@ const productReducer = (state = initProductState, action) =>{
         case FETCH_PRODUCT_SUCCESS:
             return {
                 ...state,
-                items: action.payload
+                items: action.payload,
+                isSuccess: true
             }
-        case FETCH_PRODUCT_REQUEST:
-            return {
-
-            }
-
         case FETCH_PRODUCT_FAIL:
             return {
-                ...state
+                ...state,
+                isSuccess: false
             }            
         default:
             return state;

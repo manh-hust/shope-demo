@@ -6,8 +6,8 @@ const initPostsState = {
         _limit: 16,
         _page: 1,
     },
-    totalRow: 17
-
+    totalRow: 17,
+    loading: false
 }
 
 const postReducer = (state = initPostsState, action) => {
@@ -16,12 +16,15 @@ const postReducer = (state = initPostsState, action) => {
             if(action.payload){
                 return {
                     ...state,
-                    post : [...action.payload]
+                    post : [...action.payload],
+                    loading: true
                 }
             }
             return{
                 ...state,
-                post: []
+                post: [],
+                loading: false
+
             }
         case GET_TOTAL_PAGE:
             return {
@@ -34,7 +37,8 @@ const postReducer = (state = initPostsState, action) => {
             fillterNew._page = action.payload
             return {
                 ...state,
-                fillter: fillterNew
+                fillter: fillterNew,
+                loading: false
             }
 
         case PREV_PAGE:
@@ -42,7 +46,8 @@ const postReducer = (state = initPostsState, action) => {
             fillterPrev._page = action.payload
             return {
                 ...state,
-                fillter: fillterPrev
+                fillter: fillterPrev,
+                loading: false
             }
 
         default:
