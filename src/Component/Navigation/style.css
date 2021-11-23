@@ -37,3 +37,11 @@ a, Link{
 .navigation__item-animation:hover{
     color: #fff;
 }
+.cart-total{
+    background-color: red;
+    color: transparent;
+    position: absolute;
+    font-size: 8px;
+    padding: 0 2px;
+    border-radius: 50%;
+}

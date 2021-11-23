@@ -5,6 +5,7 @@ import { removeToCard } from '../../Store/Action.Creator'
 function Cart(){
 
     const cart = useSelector(state => state.cart.items)
+    const total = useSelector(state => state.cart.total)
     const dispatch = useDispatch()
 
     function handleDelete(item){
@@ -12,7 +13,7 @@ function Cart(){
     }
     return (
     <Container>
-         <h2>Cart</h2>
+         <h2 className="mt-3">Cart{total ? `(${total})` : true}</h2>
          <Table >
             <thead>
                 <tr>

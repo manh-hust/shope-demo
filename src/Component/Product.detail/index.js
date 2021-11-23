@@ -9,6 +9,7 @@ import {addToCard, itemRemove, itemSelected} from '../../Store/Action.Creator'
 function ProductDetail() {
     const { productId } = useParams()
     const productItem = useSelector((state) => state.productDetail.itemSlected)
+    const loading = useSelector((state) => state.productDetail.loading)
     const dispatch = useDispatch()
 
     const fetchDetail = useCallback( async () => {
@@ -33,7 +34,7 @@ function ProductDetail() {
 
     return (
             <div>
-                { productItem ? 
+                { loading ? 
                ( 
                 <div className="product-detail">
                     <div className="product-detail__img">

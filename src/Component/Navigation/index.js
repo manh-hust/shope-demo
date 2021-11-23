@@ -10,7 +10,13 @@ function Navigation() {
             <NavLink className="navigation__item-animation"  to="/" >Home</NavLink>
             <div className="navigation__item">
                 <NavLink activeClassName="avtive-navbars" className="navigation__item-animation" to='/products' >Products</NavLink>
-                <NavLink activeClassName="avtive-navbars" className="navigation__item-animation" to='/cart' >Cart({total})</NavLink>
+                <NavLink activeClassName="avtive-navbars" className="navigation__item-animation" to='/cart' >
+                    Cart
+                    { total ?
+                        <span className="cart-total">12</span> :
+                        true
+                    }
+                </NavLink>
                 <NavLink activeClassName="avtive-navbars" className="navigation__item-animation" to='/App' >Post</NavLink>
                 <NavLink activeClassName="avtive-navbars" className="navigation__item-animation" to='/signin' >Account</NavLink>
             </div>

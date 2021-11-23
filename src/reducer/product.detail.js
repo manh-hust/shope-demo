@@ -1,7 +1,8 @@
 import {ITEM_SELECTED, ITEM_REMOVE} from '../Store/Constant'
 
 const initProduct = {
-    itemSlected: {}
+    itemSlected: {},
+    loading: false
 }
 
 const productDetailReducer = (state = initProduct, action) =>{
@@ -10,11 +11,11 @@ const productDetailReducer = (state = initProduct, action) =>{
         case ITEM_SELECTED:
             return {
                 ...state,
-                itemSlected: action.payload
+                itemSlected: action.payload,
+                loading: true
             }
         case ITEM_REMOVE:
             return { }
-
         default:
             return state;
     }
