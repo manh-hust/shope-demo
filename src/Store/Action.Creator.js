@@ -7,7 +7,6 @@ import {
     GET_TOTAL_PAGE,
     NEXT_PAGE,
     PREV_PAGE,
-    FETCH_PRODUCT_REQUEST,
     FETCH_PRODUCT_SUCCESS,
     FETCH_PRODUCT_FAIL,
     ITEM_SELECTED,
@@ -16,7 +15,6 @@ import {
 
 export const loadProducts = () => async dispatch => {
     try{
-        // dispatch({type: FETCH_PRODUCT_REQUEST})
         const response = await axios.get("https://fakestoreapi.com/products")
         dispatch({
             type: FETCH_PRODUCT_SUCCESS,
@@ -35,9 +33,23 @@ export const loadProducts = () => async dispatch => {
 export const fetchProducSuccess = () => {
 
 }
+
 export const fetchProducFail = () => {
     return {
         type: FETCH_PRODUCT_FAIL
+    }
+}
+
+export const fetchDetailProduct = productId => async dispatch => {
+    try{
+        const response = await axios.get(`https://fakestoreapi.com/products/${productId}`)
+        dispatch(itemSelected(response.data))
+    }
+    catch(error){
+        console.log(error)
+        dispatch({
+            type: FETCH_PRODUCT_FAIL,
+        })
     }
 }
 

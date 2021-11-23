@@ -1,10 +1,9 @@
-import axios from 'axios'
-import { useCallback, useEffect } from 'react'
+import {useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, Link } from 'react-router-dom'
 import { Button, Spinner } from 'reactstrap'
 import './style.css'
-import {addToCard, itemRemove, itemSelected} from '../../Store/Action.Creator'
+import {addToCard, itemRemove, fetchDetailProduct} from '../../Store/Action.Creator'
 
 function ProductDetail() {
     const { productId } = useParams()
@@ -12,25 +11,18 @@ function ProductDetail() {
     const loading = useSelector((state) => state.productDetail.loading)
     const dispatch = useDispatch()
 
-    const fetchDetail = useCallback( async () => {
-        const response = await axios.get(`https://fakestoreapi.com/products/${productId}`)
-        .catch(err => console.log("Err: ", err))
-        dispatch(itemSelected(response.data))
-    },[dispatch, productId])
-
     function handleAdd(item){
         dispatch(addToCard(item))
     }
 
     useEffect(() => {
         if(productId && productId !== ''){
-            fetchDetail()
+            dispatch(fetchDetailProduct(productId))
         }
-
         return () => {
             dispatch(itemRemove())
         }
-    },[fetchDetail, productId, dispatch])
+    },[fetchDetailProduct, productId, dispatch])
 
     return (
             <div>
