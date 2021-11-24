@@ -11,11 +11,9 @@ function Post(){
     const {post, fillter, totalRow, loading} = useSelector(state => state.post)
     const totalPages = Math.ceil(totalRow / fillter._limit)
     const _page = fillter._page
-
     useEffect(() => {
-        console.log('fi: ' + fillter)
         dispatch(fetchPaginationPost(fillter));
-    },[fetchPaginationPost, dispatch, fillter])
+    },[fillter, dispatch])
 
     // Animation Scrollreveal
     useEffect(()=> {

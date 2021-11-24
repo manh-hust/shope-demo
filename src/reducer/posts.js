@@ -7,7 +7,7 @@ const initPostsState = {
         _page: 1,
     },
     totalRow: 17,
-    loading: false
+    loading: true
 }
 
 const postReducer = (state = initPostsState, action) => {

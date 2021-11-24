@@ -65,11 +65,9 @@ export const removeToCard = payload => {
 
 export const fetchPaginationPost = fillter => async dispatch =>{
     try{
-        console.log('Fillter: ' + fillter._limit)
         const response = await axios.get(`https://js-post-api.herokuapp.com/api/posts?_limit=${fillter._limit}&_page=${fillter._page}`)
-        dispatch(fetchApiPost(response.data))
-        console.log('Data: ' + response.data)
-        dispatch(getTotalPage(response.pagination._totalRows))
+        dispatch(fetchApiPost(response.data.data))
+        dispatch(getTotalPage(response.data.pagination._totalRows))
     }
     catch(error){
         console.log(error)
