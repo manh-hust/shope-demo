@@ -43,20 +43,17 @@ function Home(){
               </Col>
               <Col  md={4}  className="home-container-video-images">
                   <div className="item">
-                    <img className="item-hover" src={img1}></img>
+                    <img className="item-hover" src={img1} alt="hihi" ></img>
                   </div>
                   <div className="item">
-                    <img className="item-hover" src={img2}></img>
+                    <img className="item-hover" src={img2} alt="hihi"></img>
                   </div>
                   <div className="item">
-                    <img className="item-hover" src={img3}></img>
+                    <img className="item-hover" src={img3} alt="hihi"></img>
                   </div>
                   <div className="item">
-                    <img className="item-hover" src={img4}></img>
+                    <img className="item-hover" src={img4} alt="hihi"></img>
                   </div>
-                    {/* <img className="item" src={img2}></img>
-                    <img className="item" src={img3}></img>
-                    <img className="item" src={img4}></img>  */}
               </Col>
             </Row>
           </Container>
@@ -78,13 +75,13 @@ function Home(){
               width="75%"
             >
               <div>
-                  <img src="https://picsum.photos/id/1039/1200/600" />
+                  <img src="https://picsum.photos/id/1039/1200/600" alt="hihi"/>
               </div>
               <div>
-                  <img src="https://picsum.photos/id/1040/1200/600" />
+                  <img src="https://picsum.photos/id/1040/1200/600" alt="hihi"/>
               </div>
               <div>
-                  <img src="https://picsum.photos/id/104/1200/600" />
+                  <img src="https://picsum.photos/id/104/1200/600" alt="hihi"/>
               </div>
             </Carousel>
           </Row>

@@ -1,5 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Cart from './Component/Cart'
@@ -16,23 +15,7 @@ import { loadProducts } from './Store/Action.Creator'
 function App2(){
 
     const dispatch = useDispatch()
-    useEffect(() => {
-        dispatch(loadProducts())
-    },[])
-    // useEffect(() =>{
-    //    const fetchApiProduct =  async () => {
-    //         const response = await axios
-    //         .get("https://fakestoreapi.com/products")
-    //         .catch((err) => {
-    //             console.log("Err: ", err)
-    //         })
-    //         dispatch({
-    //             type: 'FETCH_PRODUCT_SUCCESS',
-    //             payload: response.data
-    //         })
-    //         }
-    //         fetchApiProduct()
-    // },[dispatch])
+    dispatch(loadProducts())
 
     return (
         <Router>

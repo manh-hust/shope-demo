@@ -22,7 +22,7 @@ function ProductDetail() {
         return () => {
             dispatch(itemRemove())
         }
-    },[fetchDetailProduct, productId, dispatch])
+    },[productId, dispatch])
 
     return (
             <div>

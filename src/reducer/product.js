@@ -1,4 +1,4 @@
-import {FETCH_PRODUCT_FAIL, FETCH_PRODUCT_SUCCESS, FETCH_PRODUCT_REQUEST} from '../Store/Constant'
+import {FETCH_PRODUCT_FAIL, FETCH_PRODUCT_SUCCESS} from '../Store/Constant'
 
 const initProductState = {
     items: [],
