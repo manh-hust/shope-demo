@@ -3,7 +3,8 @@ import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import {Button} from 'reactstrap'
-
+import { Link } from 'react-router-dom';
+import style from './auth.module.css'
 // Configure Firebase.
     const config = {
     apiKey: 'AIzaSyCKtwFMJhWAHR6TlKphLxDSIDyZPQvdZwE',
@@ -44,6 +45,9 @@ function SignIn(){
           <h1>My App</h1>
           <p>Please sign-in:</p>
           <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+          <Link to='/signin/login'>
+            <Button color="primary" className={style.btnLogin}>Login</Button>
+          </Link>
         </div>
       );
     }
