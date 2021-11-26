@@ -4,11 +4,12 @@
     padding: 50px 30px;
     margin: 40px 80px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     box-shadow: 0 0 0 rgb(134, 133, 133);
     background-color: #fff;
 }
 .formGroup{
-    width: 1000%;
+    width: 60%;
 }

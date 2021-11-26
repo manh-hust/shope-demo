@@ -3,6 +3,7 @@ import style from './login.module.css'
 
 function Login() {
 
+
     return (
        <Form className={style.form}>
             <FormGroup className={style.formGroup}>
@@ -12,7 +13,7 @@ function Login() {
                     <Input
                     id="exampleEmail"
                     name="email"
-                    placeholder="with a placeholder"
+                    placeholder="Email..."
                     type="email"
                     />
                 </FormGroup>
@@ -23,7 +24,6 @@ function Login() {
                     <Input
                     id="examplePassword"
                     name="password"
-                    placeholder="password placeholder"
                     type="password"
                     />
                 </FormGroup>
