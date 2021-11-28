@@ -1,8 +1,10 @@
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import style from './login.module.css'
+import { useDispatch } from 'react-redux'
 
 function Login() {
 
+    const dispatch = useDispatch()
 
     return (
        <Form className={style.form}>
@@ -27,7 +29,17 @@ function Login() {
                     type="password"
                     />
                 </FormGroup>
-                <Button color='success'>Login</Button>
+                <Button 
+                color='success'
+                onClick = {() => {
+                    dispatch({
+                        type: 'LOGIN',
+                    })
+                }}
+                
+                >
+                    Login
+                </Button>
        </Form>
     )
 }

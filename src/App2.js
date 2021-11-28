@@ -11,23 +11,14 @@ import SignIn from './features/auth'
 import Login from './Component/Login'
 import ScrollToTop from './Component/BackToTop'
 import { loadProducts } from './Store/Action.Creator'
-import { Button } from 'reactstrap'
-import { useHistory } from 'react-router'
 
 function App2(){
 
-    const history = useHistory()
     const dispatch = useDispatch()
     dispatch(loadProducts())
-
-    function handleBack() {
-        console.log(history)
-    }
-
     return (
         <Router>
             <Navigation/>
-            <Button onClick={handleBack}>Back</Button>
             <Switch>
                 <Route exact path="/" component={Home}/>
                 <Route path="/products/:productId"  component={ProductDetail}/>

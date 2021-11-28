@@ -3,15 +3,24 @@ import {Button, Container, Table} from 'reactstrap'
 import { removeToCard } from '../../Store/Action.Creator'
 import { Link } from 'react-router-dom'
 import style from './cart.module.css'
+import { Redirect} from 'react-router-dom'
+
 function Cart(){
 
+    
     const cart = useSelector(state => state.cart.items)
     const total = useSelector(state => state.cart.total)
+    const logined = useSelector(state => state.cart.login)
     const dispatch = useDispatch()
+
+    if(!logined){
+        return <Redirect to='/signin/login'/>
+    }
 
     function handleDelete(item){
         dispatch(removeToCard(item))
     }
+
     return (
     <Container>
          <h2 className="mt-3">Cart{total ? `(${total})` : true}</h2>

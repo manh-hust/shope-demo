@@ -2,7 +2,8 @@ import {ADD_TO_CART, REMOVE_TO_CART} from '../Store/Constant'
 
 const initCartState = {
     items: [],
-    total: 0
+    total: 0,
+    login: false
 }
 
 const cartReducer = (state = initCartState, action) =>{
@@ -41,12 +42,22 @@ const cartReducer = (state = initCartState, action) =>{
             }
 
             const newTotalR = state.total - 1
-
             return{
                 ...state,
                 items: newItemsR,
                 total: newTotalR,
             }   
+        case 'LOGIN' :
+            return {
+                ...state,
+                login: true
+            }
+        case 'LOGOUT' :
+            return {
+                ...state,
+                login: false
+            }
+
         default:
             return state;
     }
