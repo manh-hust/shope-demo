@@ -1,0 +1,36 @@
+.Nav-product{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+    margin-top: 24px;
+    width: 100%;
+}
+.Nav-product::-webkit-scrollbar{
+    width: 4px;
+    height: 8px;
+}
+.Nav-product::-webkit-scrollbar-track{
+    border-radius: 20px;
+}
+.Nav-product::-webkit-scrollbar-thumb{
+    background-color: rgba(8, 75, 75, 0.575);
+}
+.Nav-product-item{
+    min-width: 140px;
+    height: 60px;
+    margin: 4px;
+    border-radius: 10px;
+    background-color: rgb(36, 121, 160);
+    color: #fff;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.Nav-product-item:first-child{
+    margin-left: 8px;
+}
+p{
+    margin-bottom: 0;
+}

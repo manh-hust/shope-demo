@@ -4,6 +4,8 @@ import { Card, CardBody, CardImg, CardSubtitle, CardTitle, Col, Container, Row }
 import './product.css';
 import ScrollReveal from 'scrollreveal';
 import { useEffect } from 'react';
+import NavProduct from './NavProduct'
+
 
 function Product(){
     
@@ -16,8 +18,9 @@ function Product(){
  
 
     return (
-        <Container>
+        <Container style={{position: 'relative'}}>
             <h2 className="mt-3">List Product</h2>
+            <NavProduct/>
             {products ?
            (<Row  className="rows">
             {products.map((product) =>(
