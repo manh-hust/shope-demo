@@ -8,7 +8,7 @@
 }
 .Nav-product::-webkit-scrollbar{
     width: 4px;
-    height: 8px;
+    height: 4px;
 }
 .Nav-product::-webkit-scrollbar-track{
     border-radius: 20px;
@@ -21,7 +21,7 @@
     height: 60px;
     margin: 4px;
     border-radius: 10px;
-    background-color: rgb(36, 121, 160);
+    background-color: rgb(211, 46, 87);
     color: #fff;
     display: flex;
     text-align: center;
@@ -30,6 +30,12 @@
 }
 .Nav-product-item:first-child{
     margin-left: 8px;
+}
+.Nav-product-item:nth-child(3n){
+    background-color: rgb(43, 226, 195);
+}
+.Nav-product-item:nth-child(3n+1){
+    background-color: rgb(226, 162, 43);
 }
 p{
     margin-bottom: 0;
