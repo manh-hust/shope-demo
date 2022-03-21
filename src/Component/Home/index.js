@@ -70,9 +70,8 @@ function Home(){
               infiniteLoop={true}
               interval={3000}
               showStatus={false}
-              showArrows={false}
               showThumbs={false}
-              width="75%"
+              width="100%"
             >
               <div>
                   <img src="https://picsum.photos/id/1039/1200/600" alt="hihi"/>

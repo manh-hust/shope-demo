@@ -44,7 +44,7 @@
     width: 100%
 }
 .btn-nav:hover{
-    border: none;
+    border: #01f8df solid 1px;
 }
 
 .home-container-video{
