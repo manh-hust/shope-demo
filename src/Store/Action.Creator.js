@@ -10,8 +10,36 @@ import {
     FETCH_PRODUCT_SUCCESS,
     FETCH_PRODUCT_FAIL,
     ITEM_SELECTED,
-    ITEM_REMOVE
+    ITEM_REMOVE,
+    FETCH_ALL_CATEGORIES,
+    FETCH_CATEGORY
 } from './Constant'
+
+export const fetchAllCategories = () => async dispatch => {
+    try{
+        const response = await axios.get("https://fakestoreapi.com/products/categories")
+        dispatch({
+            type: FETCH_ALL_CATEGORIES,
+            payload: response.data
+        })
+    }
+    catch(error){
+        console.log(error)
+    }
+}
+
+export const fetchCategory = (type) => async dispatch => {
+    try{
+        const response = await axios.get(`https://fakestoreapi.com/products/categories/${type}`)
+        dispatch({
+            type: FETCH_CATEGORY,
+            payload: response.data
+        })
+    }
+    catch(error){
+        console.log(error)
+    }
+}
 
 export const loadProducts = () => async dispatch => {
     try{

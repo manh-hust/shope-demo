@@ -6,21 +6,20 @@ import ScrollReveal from 'scrollreveal';
 import { useEffect } from 'react';
 import NavProduct from './NavProduct'
 
-
 function Product(){
     
     const products = useSelector(state => state.product.items) 
+    const category = useSelector(state => state.category)
+
     useEffect(() => {
         ScrollReveal().reveal('.rows',{delay: 300, origin: 'bottom', distance: '100px'}) 
         ScrollReveal().reveal('.card-product',{delay: 300, interval: 200, origin: 'bottom', distance: '50px', scale: 0.9, duration: 300})
     },[])
 
- 
-
     return (
         <Container style={{position: 'relative'}}>
-            <h2 className="mt-3">List Product</h2>
-            <NavProduct/>
+            <NavProduct category={category}/>
+            
             {products ?
            (<Row  className="rows">
             {products.map((product) =>(

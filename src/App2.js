@@ -10,19 +10,23 @@ import ProductDetail from './Component/Product.detail'
 import SignIn from './features/auth'
 import Login from './Component/Login'
 import ScrollToTop from './Component/BackToTop'
-import { loadProducts } from './Store/Action.Creator'
+import { loadProducts, fetchAllCategories } from './Store/Action.Creator'
 
 function App2(){
 
     const dispatch = useDispatch()
+    
     dispatch(loadProducts())
+    dispatch(fetchAllCategories())
+
     return (
         <Router>
             <Navigation/>
             <Switch>
                 <Route exact path="/" component={Home}/>
                 <Route path="/products/:productId"  component={ProductDetail}/>
-                <Route path="/products" component={Product}/>
+                <Route exact path="/products" component={Product}/>
+                <Route path="/products/category/:category" component={Product}/>
                 <Route path="/cart" component={Cart}/>
                 <Route path="/App" component={Post}/>
                 <Route path="/signin/login" component={Login}/>

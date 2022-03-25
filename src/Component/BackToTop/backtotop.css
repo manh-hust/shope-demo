@@ -7,7 +7,7 @@
   transition: 0.25s all linear;
   }
 .scroll-to-top:hover{
-  transform: rotate(720deg);
+  /* transform: rotate(720deg); */
 }
   @keyframes fadeIn {
     from {

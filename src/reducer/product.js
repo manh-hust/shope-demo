@@ -1,4 +1,4 @@
-import {FETCH_PRODUCT_FAIL, FETCH_PRODUCT_SUCCESS} from '../Store/Constant'
+import {FETCH_PRODUCT_FAIL, FETCH_PRODUCT_SUCCESS, FETCH_CATEGORY} from '../Store/Constant'
 
 const initProductState = {
     items: [],
@@ -17,7 +17,12 @@ const productReducer = (state = initProductState, action) =>{
             return {
                 ...state,
                 isSuccess: false
-            }            
+            }
+        case FETCH_CATEGORY :
+            return {
+                ...state,
+                items: action.payload
+            }        
         default:
             return state;
     }

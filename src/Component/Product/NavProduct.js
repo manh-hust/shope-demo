@@ -1,45 +1,23 @@
 import './NavProduct.css'
+import { Link } from 'react-router-dom';
 
-function NavProduct () {
+function NavProduct ({category}) {
+
+  
     return (
-       <div className="Nav-product">
-           <div className="Nav-product-item">
-                <p>Quần áo</p>
-           </div>
-           <div className="Nav-product-item">
-                <p>Jean</p>
-           </div>
-           <div className="Nav-product-item">
-                <p>Hoodie</p>
-           </div>
-           <div className="Nav-product-item">
-                <p>Jacket</p>
-           </div>
-           <div className="Nav-product-item">
-                <p>Drest</p>
-           </div>
-           <div className="Nav-product-item">
-                <p>Socks</p>
-           </div>
-           <div className="Nav-product-item">
-                <p>Fans</p>
-           </div>
-           <div className="Nav-product-item">
-                <p>Stove</p>
-           </div>
-           <div className="Nav-product-item">
-                <p>Pot</p>
-           </div>
-           <div className="Nav-product-item">
-                <p>Shirt</p>
-           </div>
-           <div className="Nav-product-item">
-                <p>Glasses</p>
-           </div>
-            <div className="Nav-product-item">
-                <p>Belt</p>
-           </div>
-       </div>
+      <>
+         <h2 className="mt-3">List Product</h2>
+         <div className="Nav-product">
+               <Link to={`/products`} className="Nav-product-item">
+                  <p>All</p>
+               </Link>
+               {category.map(item => (
+                  <Link to={`/products/category/${item}`} className="Nav-product-item">
+                     <p>{item}</p>
+                  </Link>
+               ))}
+         </div>
+      </>
     )
 }
 
