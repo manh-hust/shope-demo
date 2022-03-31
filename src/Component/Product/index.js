@@ -1,20 +1,39 @@
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Card, CardBody, CardImg, CardSubtitle, CardTitle, Col, Container, Row } from 'reactstrap';
 import './product.css';
+import { useDispatch, useSelector } from 'react-redux'
 import ScrollReveal from 'scrollreveal';
 import { useEffect } from 'react';
 import NavProduct from './NavProduct'
+import { fetchCategory } from '../../Store/Action.Creator';
 
 function Product(){
     
     const products = useSelector(state => state.product.items) 
+    console.log(products);
     const category = useSelector(state => state.category)
+
+    const dispatch = useDispatch()
+    const { type } = useParams()
+    console.log('Type: ',type);
 
     useEffect(() => {
         ScrollReveal().reveal('.rows',{delay: 300, origin: 'bottom', distance: '100px'}) 
         ScrollReveal().reveal('.card-product',{delay: 300, interval: 200, origin: 'bottom', distance: '50px', scale: 0.9, duration: 300})
     },[])
+
+    useEffect(() => {
+        console.log('Type: ',type);
+        if(type && type !== ''){
+            dispatch(fetchCategory(type))
+        }
+        // else{
+        //     dispatch(fetchCategory('electronics'))
+        // }
+        // return () => {
+        //     dispatch(itemRemove())
+        // }
+    },[type, dispatch])
 
     return (
         <Container style={{position: 'relative'}}>

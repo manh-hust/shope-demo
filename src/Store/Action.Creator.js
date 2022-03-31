@@ -30,7 +30,7 @@ export const fetchAllCategories = () => async dispatch => {
 
 export const fetchCategory = (type) => async dispatch => {
     try{
-        const response = await axios.get(`https://fakestoreapi.com/products/categories/${type}`)
+        const response = await axios.get(`https://fakestoreapi.com/products/category/${type}`)
         dispatch({
             type: FETCH_CATEGORY,
             payload: response.data
@@ -38,6 +38,9 @@ export const fetchCategory = (type) => async dispatch => {
     }
     catch(error){
         console.log(error)
+        dispatch({
+            type: FETCH_PRODUCT_FAIL,
+        })
     }
 }
 

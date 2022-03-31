@@ -21,7 +21,8 @@ const productReducer = (state = initProductState, action) =>{
         case FETCH_CATEGORY :
             return {
                 ...state,
-                items: action.payload
+                items: action.payload,
+                isSuccess: true
             }        
         default:
             return state;
